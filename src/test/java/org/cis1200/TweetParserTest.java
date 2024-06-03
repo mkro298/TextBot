@@ -9,7 +9,6 @@ import java.io.StringReader;
 import java.util.LinkedList;
 import java.util.List;
 
-/** Tests for TweetParser */
 public class TweetParserTest {
 
     // A helper function to create a singleton list from a word
@@ -49,11 +48,7 @@ public class TweetParserTest {
         assertEquals("ab'c", TweetParser.cleanWord("ab'c"));
     }
 
-    /* **** ****** **** WRITE YOUR TESTS BELOW THIS LINE **** ****** **** */
-
-    /* **** ****** ***** **** EXTRACT COLUMN TESTS **** **** ****** ***** */
-
-    /* Here's an example test case. Be sure to add your own as well */
+   
     @Test
     public void testExtractColumnGetsCorrectColumn() {
         assertEquals(
@@ -76,9 +71,7 @@ public class TweetParserTest {
         assertEquals("", TweetParser.extractColumn("", 0));
     }
 
-    /* **** ****** ***** ***** CSV DATA TO TWEETS ***** **** ****** ***** */
 
-    /* Here's an example test case. Be sure to add your own as well */
     @Test
     public void testCsvDataToTweetsSimpleCSV() {
         StringReader sr = new StringReader(
@@ -174,9 +167,7 @@ public class TweetParserTest {
         assert (result.isEmpty());
     }
 
-    /* **** ****** ***** ** PARSE AND CLEAN SENTENCE ** ***** ****** ***** */
-
-    /* Here's an example test case. Be sure to add your own as well */
+  
     @Test
     public void parseAndCleanSentenceNonEmptyFiltered() {
         List<String> sentence = TweetParser.parseAndCleanSentence("abc #@#F");
@@ -265,9 +256,7 @@ public class TweetParserTest {
         List<String> result = TweetParser.parseAndCleanSentence(sentence);
         assert (result.isEmpty());
     }
-    /* **** ****** ***** **** PARSE AND CLEAN TWEET *** ***** ****** ***** */
 
-    /* Here's an example test case. Be sure to add your own as well */
     @Test
     public void testParseAndCleanTweetRemovesURLS1() {
         List<List<String>> sentences = TweetParser
@@ -400,9 +389,7 @@ public class TweetParserTest {
         assert (result.isEmpty());
     }
 
-    /* **** ****** ***** ** CSV DATA TO TRAINING DATA ** ***** ****** **** */
 
-    /* Here's an example test case. Be sure to add your own as well */
     @Test
     public void testCsvDataToTrainingDataSimpleCSV() {
         StringReader sr = new StringReader(

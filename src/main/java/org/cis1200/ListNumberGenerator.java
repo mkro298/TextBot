@@ -4,9 +4,7 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
-/**
- * Produces a deterministic sequence of numbers
- */
+
 public class ListNumberGenerator implements NumberGenerator {
 
     // INVARIANT: numbers is nonnull and nonempty
@@ -16,10 +14,7 @@ public class ListNumberGenerator implements NumberGenerator {
     // INVARIANT: index is a valid position in numbers
     private int index = 0;
 
-    /**
-     * Initialize the field {@code smallest} by finding the minimum
-     * value of the array. Establishes its invariant.
-     */
+  
     private void initializeSmallest() {
         int min = numbers[0];
         for (int x : numbers) {
@@ -30,15 +25,7 @@ public class ListNumberGenerator implements NumberGenerator {
         this.smallest = min;
     }
 
-    /**
-     * Creates a ListNumberGenerator which generates numbers based off of a list
-     * of possible integers.
-     *
-     * @param list - a list of integers to step through and output in the
-     *             generator.
-     * @throws IllegalArgumentException - when list is null, of size 0, or
-     *                                  when any Integer in the list is null.
-     */
+
     public ListNumberGenerator(List<Integer> list) {
         if (list == null || list.isEmpty()) {
             throw new IllegalArgumentException(
@@ -58,14 +45,7 @@ public class ListNumberGenerator implements NumberGenerator {
 
     }
 
-    /**
-     * Creates a ListNumberGenerator which generates numbers based off of an
-     * array of possible integers.
-     *
-     * @param arr - an array of integers to step through and output in the
-     *            generator.
-     * @throws IllegalArgumentException - when arr is null or empty
-     */
+  
     public ListNumberGenerator(int[] arr) {
         if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("array must be non-null and non-empty");
@@ -75,12 +55,6 @@ public class ListNumberGenerator implements NumberGenerator {
 
     }
 
-    /**
-     * Returns the next integer available in the list. Start over if the last number
-     * is reached.
-     *
-     * @return a number from the list.
-     */
     public int next() {
         if (index == numbers.length) {
             index = 0;
@@ -90,15 +64,7 @@ public class ListNumberGenerator implements NumberGenerator {
         return num;
     }
 
-    /**
-     * Returns the next integer available in the list that is less than the
-     * specified bound.
-     *
-     * @param bound - the max value that can be returned by this call to next.
-     * @return a number between 0 and bound (inclusive)
-     * @throws NoSuchElementException when no elements are available
-     *                                within the given bound.
-     */
+
     public int next(int bound) {
         if (bound <= smallest) {
             throw new NoSuchElementException(
